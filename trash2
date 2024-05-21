@@ -1,4 +1,5 @@
 import turtle
+import time #n초 대기 위해서 필요
 turtle.colormode(255)
 turtle.bgcolor(184,28,46)
 turtle.width(3)
@@ -131,18 +132,10 @@ def raw(x,y):
     turtle.left(90)
     turtle.fd(55)
     turtle.bk(110)
+
+
     
-    
-    
-##turtle.width(5)
-##gongcha(rat*-2,rat*-5)
-##below(-38, -72)
-##flower(-33, 65)
-##flower(20, 65)
-##bug(-21, 83)
-##cir(-13,130)
-##line(-25, 175)
-##raw(-29, 240)
+
 
 turtle.width(5)
 gongcha(rat*-2,rat*-5)
@@ -154,8 +147,12 @@ flower(-33, 65)
 flower(20, 65)
 below(-36, 8)
 
-
+time.sleep(0.6) #0.6초 대기
 turtle.penup()
 turtle.goto(0.8*rat,-12*rat)
 turtle.color("white")
 turtle.write("Gong cha", align="center", font=("Adobe Caslon Pro Bold", 60, "normal"))
+time.sleep(1.4)
+turtle.clear()
+turtle.bgcolor("white")
+
