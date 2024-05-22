@@ -256,6 +256,7 @@ def gray(x,y):
     turtle.pendown()
     turtle.color("gray")
     turtle.begin_fill()
+    turtle.width(5)
     for b in range(2):
         turtle.fd(68)
         turtle.right(90)
@@ -328,24 +329,27 @@ def button(x,y):
         turtle.left(90)
     turtle.end_fill()
 
-##turtle.width(5)
-##gongcha(rat*-2,rat*-5)
-##raw(-29, 240)
-##cir(-13,130)
-##line(-25, 175)
-##bug(-21, 83)
-##flower(-33, 65)
-##flower(20, 65)
-##below(-36, 8)
-##
-##time.sleep(0.6) #0.6초 대기
-##turtle.penup()
-##turtle.goto(0.8*rat,-12*rat)
-##turtle.color("white")
-##turtle.write("Gong cha", align="center", font=("Adobe Caslon Pro Bold", 60, "normal"))
-##time.sleep(1.4)
-##turtle.clear()
-##turtle.home()
+
+time.sleep(3) #3초 대기
+
+turtle.width(5)
+gongcha(rat*-2,rat*-5)
+raw(-29, 240)
+cir(-13,130)
+line(-25, 175)
+bug(-21, 83)
+flower(-33, 65)
+flower(20, 65)
+below(-36, 8)
+
+time.sleep(0.6) #0.6초 대기
+turtle.penup()
+turtle.goto(0.8*rat,-12*rat)
+turtle.color("white")
+turtle.write("Gong cha", align="center", font=("Adobe Caslon Pro Bold", 60, "normal"))
+time.sleep(1.4)
+turtle.clear()
+turtle.home()
 
 bk(-200,-340)
 whi(-185,-310)
@@ -486,9 +490,135 @@ screen.addshape(image6)
 screen.addshape(image7)
 screen.addshape(image8)
 t1=turtle.Turtle()
+t1.hideturtle()
+t1.penup()
+t1.goto(-144,240)
 t1.shape(image1)
+t1.stamp()
+t1.goto(-65, 240)
+t1.shape(image1)
+t1.stamp()
+t1.goto(14,240)
+t1.shape(image2)
+t1.stamp()
+t1.goto(94, 240)
+t1.shape(image2)
+t1.stamp()
+
+t1.goto(-144,120)
+t1.shape(image3)
+t1.stamp()
+t1.goto(-65, 120)
+t1.shape(image3)
+t1.stamp()
+t1.goto(14,120)
+t1.shape(image4)
+t1.stamp()
+t1.goto(94, 120)
+t1.shape(image4)
+t1.stamp()
+
+t1.goto(-144,0)
+t1.shape(image5)
+t1.stamp()
+t1.goto(-65, 0)
+t1.shape(image5)
+t1.stamp()
+t1.goto(14,0)
+t1.shape(image6)
+t1.stamp()
+t1.goto(94, 0)
+t1.shape(image6)
+t1.stamp()
+
+t1.goto(-144,-120)
+t1.shape(image7)
+t1.stamp()
+t1.goto(-65, -120)
+t1.shape(image7)
+t1.stamp()
+t1.goto(14,-120)
+t1.shape(image8)
+t1.stamp()
+t1.goto(94, -120)
+t1.shape(image8)
+t1.stamp()
+
+time.sleep(2)
+
+menu=turtle.textinput("MENU","메뉴를 선택해주세요")
+cold=turtle.textinput("COLD/HOT","COLD/HOT")
+ice=turtle.textinput("얼음양","Regular Ice/Full Ice/Less Ice")
+sugar=turtle.textinput("당도","50/100/30/70")
+toping=turtle.textinput("토핑(+500)","펄/밀크폼/코코넛/알로에")
+
+turtle.penup()
+turtle.goto(-210,-350)
+turtle.pendown()
+turtle.speed(0)
+turtle.color(184,28,46)
+turtle.begin_fill()
+for a in range(2):
+    turtle.fd(35*q)
+    turtle.left(90)
+    turtle.fd(55*q)
+    turtle.left(90)
+turtle.end_fill()
+
+turtle.penup()
+turtle.goto(-100,-50)
+turtle.pendown()
+turtle.speed(0)
+turtle.color("white")
+turtle.begin_fill()
+for a in range(2):
+    turtle.fd(240)
+    turtle.circle(10,90)
+    turtle.fd(200)
+    turtle.circle(10,90)
+turtle.end_fill()
 
 
-##menu=turtle.textinput("승연이하이룽","뭐먹으실?")
+def draw_dotted_line(length, dot_size=5, gap_size=2):
+    for _ in range(length // (dot_size + gap_size)):
+        turtle.pendown()
+        turtle.forward(dot_size)
+        turtle.penup()
+        turtle.forward(gap_size)
+turtle.color("black")
+turtle.penup()
+turtle.goto(-90, 130)
+turtle.pendown()
+draw_dotted_line(228)
+turtle.goto(-90, 90)
+draw_dotted_line(228)
+
+
+price=0
+if menu=="망고치즈폼밀크티":
+    price="4000"
+
+total = cold + "/" + ice + "/" + sugar + "/" + toping
+totalprice="금액 : "+price
+
+
+turtle.penup()
+turtle.goto(-90,133)
+turtle.write("05-23 2:31:30                003896", font=("Arial", 11, "normal"))
+turtle.goto(-90, 97)
+turtle.write(menu, font=("휴먼모음T", 16, "normal"))
+turtle.goto(-90,68)
+turtle.write(total, font=("Arial", 11, "normal"))
+turtle.goto(-90,-4)
+turtle.write("순번 : 1-4", font=("Arial", 11, "normal"))
+turtle.goto(-90,-22)
+turtle.write("주문 : #389", font=("Arial", 11, "normal"))
+turtle.goto(-90,-40)
+turtle.write(totalprice, font=("Arial", 11, "normal"))
+
+
+
+
+
 
 
