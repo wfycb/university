@@ -1,0 +1,673 @@
+import turtle
+import time #n초 대기 위해서 필요
+import tkinter as tk
+from tkinter import simpledialog #팝업 띄우기 위해 필요
+
+turtle.colormode(255)
+turtle.bgcolor(184,28,46)
+turtle.width(3)
+turtle.speed(8)
+turtle.hideturtle()
+rat=20
+q=14
+
+def gongcha(x, y):
+    turtle.width(7.5)
+    turtle.penup()
+    turtle.goto(x, y)
+    turtle.pendown()
+    turtle.color("white")
+    turtle.begin_fill()
+    for i in range(2):
+        turtle.fd(rat*5)
+        turtle.circle(rat*2,90)
+        turtle.fd(rat*14)
+        turtle.circle(rat*2,90)
+    turtle.end_fill()
+
+def below(x,y):
+    turtle.width(7.5)
+    turtle.penup()
+    turtle.goto(x, y)
+    turtle.pendown()
+    turtle.color(184,28,46)
+    turtle.left(116)
+    turtle.fd(54)
+    turtle.right(52)
+    turtle.fd(54)
+    turtle.penup()
+    turtle.goto(x+46, y+5)
+    turtle.pendown()
+    turtle.setheading(-90)
+    turtle.fd(90)
+    turtle.penup()
+    turtle.goto(-36, -12)
+    turtle.pendown()
+    turtle.setheading(0)
+    turtle.fd(92)
+    turtle.penup()
+    turtle.goto(-38,-72)
+    turtle.pendown()
+    turtle.left(35)
+    turtle.circle(60,56)
+    turtle.penup()
+    turtle.goto(10,-72)
+    turtle.setheading(0)
+    turtle.left(90)
+    turtle.goto(58, -72)
+    turtle.pendown()
+    turtle.left(240)
+    turtle.circle(60,-56)
+    
+
+def flower(x,y):
+    turtle.width(7.5)
+    turtle.penup()
+    turtle.goto(x, y)
+    turtle.pendown()
+    turtle.setheading(-90)
+    turtle.fd(17)
+    turtle.circle(10,90)
+    turtle.fd(15)
+    turtle.circle(10,90)
+    turtle.fd(17)
+    turtle.penup()
+    turtle.goto(x+18,y)
+    turtle.pendown()
+    turtle.setheading(-90)
+    turtle.fd(40)
+
+def bug(x,y):
+    turtle.setheading(-90)
+    turtle.width(7.5)
+    turtle.penup()
+    turtle.goto(x,y)
+    turtle.pendown()
+    turtle.left(140)
+    turtle.circle(80, 35)
+    turtle.penup()
+    turtle.goto(34, y)
+    turtle.pendown()
+    turtle.left(220)
+    turtle.circle(80,-35)
+    turtle.penup()
+    turtle.home()
+
+def cir(x,y):
+    turtle.penup()
+    turtle.goto(x,y)
+    turtle.pendown()
+    turtle.fd(30)
+    turtle.circle(25, 70)
+    turtle.fd(25)
+    turtle.circle(50, 30)
+    turtle.circle(10, 80)
+    turtle.fd(60)
+    turtle.circle(10,80)
+    turtle.circle(50,30)
+    turtle.fd(35)
+    turtle.circle(10,10)
+    turtle.penup()
+    turtle.home()
+
+def line(x,y):
+    turtle.penup()
+    turtle.goto(x,y)
+    turtle.pendown()
+    turtle.fd(70)
+    turtle.penup()
+    turtle.goto(x+10, y-25)
+    turtle.pendown()
+    turtle.fd(50)
+    turtle.penup()
+    turtle.home()
+
+def raw(x,y):
+    turtle.color(184,28,46)
+    turtle.penup()
+    turtle.goto(x,y)
+    turtle.pendown()
+    turtle.fd(80)
+    turtle.penup()
+    turtle.goto(x+40, y)
+    turtle.pendown()
+    turtle.right(90)
+    turtle.fd(20)
+    turtle.left(90)
+    turtle.fd(55)
+    turtle.bk(110)
+
+def bk(x,y):
+    turtle.penup()
+    turtle.goto(x,y)
+    turtle.pendown()
+    turtle.speed(0)
+    turtle.color("black")
+    turtle.begin_fill()
+    for a in range(2):
+        turtle.fd(30*q)
+        turtle.left(90)
+        turtle.fd(52*q)
+        turtle.left(90)
+    turtle.end_fill()
+
+def whi(x,y):
+    turtle.penup()
+    turtle.goto(x,y)
+    turtle.pendown()
+    turtle.color("white")
+    turtle.begin_fill()
+    for a in range(2):
+        turtle.fd(28*q)
+        turtle.left(90)
+        turtle.fd(49*q)
+        turtle.left(90)
+    turtle.end_fill()
+    turtle.penup()
+    turtle.home()
+
+def order(x,y):
+    turtle.penup()
+    turtle.goto(x,y)
+    turtle.pendown()
+    turtle.color(184,28,46)
+    turtle.begin_fill()
+    for b in range(2):
+        turtle.fd(28*q)
+        turtle.right(90)
+        turtle.fd(20)
+        turtle.right(90)
+    turtle.end_fill()
+    turtle.penup()
+    turtle.goto(-182,358)
+    turtle.color("white")
+    turtle.write("주문하려면 메뉴를 클릭해 주세요.", font=("Adobe Caslon Pro Bold", 8, "normal"))
+    turtle.goto(-10, 358)
+    turtle.write("⌂ 시작화면", font=("Adobe Caslon Pro Bold", 8, "normal"))
+
+def cart(x,y):
+    turtle.penup()
+    turtle.goto(x,y)
+    turtle.pendown()
+    turtle.color(135,0,0)
+    turtle.begin_fill()
+    turtle.setheading(180)
+    turtle.fd(4.5*q)
+    turtle.circle(3,90)
+    turtle.fd(617)
+    turtle.left(90)
+    turtle.fd(4.5*q+3)
+    turtle.left(90)
+    turtle.fd(618)
+    turtle.end_fill()
+    turtle.penup()
+    turtle.goto(x,y-40)
+    turtle.pendown()
+    turtle.color(184,28,46)
+    turtle.begin_fill()
+    turtle.setheading(180)
+    turtle.fd(4.5*q)
+    turtle.circle(3,90)
+    turtle.fd(577)
+    turtle.left(90)
+    turtle.fd(4.5*q+3)
+    turtle.left(90)
+    turtle.fd(578)
+    turtle.end_fill()
+    turtle.penup()
+    turtle.goto(x-30, y-30)
+    turtle.pencolor("white")
+    turtle.write("장바구니", align="center", font=("Adobe Caslon Pro Bold", 8, "normal"))
+    turtle.goto(x-54, y-80)
+    turtle.pendown()
+    turtle.setheading(0)
+    turtle.width(1)
+    for s in range(2):
+        turtle.fd(44)
+        turtle.circle(3,90)
+        turtle.fd(10)
+        turtle.circle(3,90)
+    turtle.penup()
+    turtle.goto(x-32, y-80)
+    turtle.write("전체삭제", align="center", font=("Adobe Caslon Pro Bold", 5, "normal"))
+
+def wblock(x,y):
+    turtle.color("white")
+    turtle.penup()
+    turtle.goto(x,y)
+    turtle.begin_fill()
+    for s in range(4):
+        turtle.fd(45)
+        turtle.circle(4,90)
+    turtle.end_fill()
+
+def don(x,y):
+    turtle.penup()
+    turtle.goto(x,y)
+    turtle.pendown()
+    turtle.width(1)
+    turtle.fd(54)
+    turtle.penup()
+    turtle.goto(x+43, y-5)
+    turtle.write("0 개", align="center", font=("Adobe Caslon Pro Bold", 8, "normal"))
+    turtle.goto(x+43, y-20)
+    turtle.write("0 원", align="center", font=("Adobe Caslon Pro Bold", 8, "normal"))
+    
+def gray(x,y):
+    turtle.penup()
+    turtle.goto(x,y)
+    turtle.pendown()
+    turtle.color("gray")
+    turtle.begin_fill()
+    turtle.width(5)
+    for b in range(2):
+        turtle.fd(68)
+        turtle.right(90)
+        turtle.fd(40)
+        turtle.right(90)
+    turtle.end_fill()
+    turtle.color("white")
+    turtle.penup()
+    turtle.goto(x+35, y-33)
+    turtle.write("결제하기", align="center", font=("Adobe Caslon Pro Bold", 10, "normal"))
+
+
+def wline(x,y):
+    turtle.penup()
+    turtle.goto(x,y)
+    turtle.pendown()
+    turtle.width(1)
+    turtle.color("silver")
+    for s in range(2):
+        turtle.fd(55)
+        turtle.circle(3,90)
+        turtle.fd(16)
+        turtle.circle(3,90)
+
+def wlist(x,y):
+    turtle.penup()
+    turtle.goto(x,y)
+    turtle.color("black")
+    turtle.write("NEW MENU", align="center", font=("Adobe Caslon Pro Bold", 7, "normal"))
+    turtle.goto(x+64,y)
+    turtle.write("베스트콤비", align="center", font=("Adobe Caslon Pro Bold", 7, "normal"))
+    turtle.goto(x+128,y)
+    turtle.write("밀크티", align="center", font=("Adobe Caslon Pro Bold", 7, "normal"))
+    turtle.goto(x+192,y)
+    turtle.write("브라운슈가", align="center", font=("Adobe Caslon Pro Bold", 7, "normal"))
+    turtle.goto(x+256,y)
+    turtle.write("스무디", align="center", font=("Adobe Caslon Pro Bold", 7, "normal"))
+    turtle.goto(x+320,y)
+    turtle.write("오리지널티", align="center", font=("Adobe Caslon Pro Bold", 7, "normal"))
+    turtle.goto(x,y-26)
+    turtle.write("과일믹스", align="center", font=("Adobe Caslon Pro Bold", 7, "normal"))
+    turtle.goto(x+64,y-26)
+    turtle.write("커피", align="center", font=("Adobe Caslon Pro Bold", 7, "normal"))
+    turtle.goto(x+128,y-26)
+    turtle.write("베이커리&스낵", align="center", font=("Adobe Caslon Pro Bold", 7, "normal"))
+    turtle.goto(x+192,y-26)
+    turtle.write("병음료", align="center", font=("Adobe Caslon Pro Bold", 7, "normal"))
+
+def qline(x,y):
+    turtle.penup()
+    turtle.goto(x,y)
+    turtle.pendown()
+    turtle.width(1)
+    turtle.color("silver")
+    for s in range(2):
+        turtle.fd(68)
+        turtle.circle(3,90)
+        turtle.fd(110)
+        turtle.circle(3,90)
+
+def button(x,y):
+    turtle.penup()
+    turtle.goto(x,y)
+    turtle.color("black")
+    turtle.begin_fill()
+    for l in range(2):
+        turtle.fd(65)
+        turtle.left(90)
+        turtle.fd(30)
+        turtle.left(90)
+    turtle.end_fill()
+
+
+##turtle.width(5)
+##gongcha(rat*-2,rat*-5)
+##raw(-29, 240)
+##cir(-13,130)
+##line(-25, 175)
+##bug(-21, 83)
+##flower(-33, 65)
+##flower(20, 65)
+##below(-36, 8)
+
+##time.sleep(0.6) #0.6초 대기
+##turtle.penup()
+##turtle.goto(0.8*rat,-12*rat)
+##turtle.color("white")
+##turtle.write("Gong cha", align="center", font=("Adobe Caslon Pro Bold", 60, "normal"))
+##time.sleep(1.4)
+##turtle.clear()
+##turtle.home()
+##
+##bk(-200,-340)
+##whi(-185,-310)
+##order(-185,380)
+##cart(-185+28*q, 380-5*q)
+##wblock(153, 140)
+##wblock(153, 80)
+##wblock(153, 20)
+##wblock(153, -40)
+##wblock(153, -100)
+##don(150, -230)
+##gray(140,-272)
+##wline(-178,330)
+##wline(-114,330)
+##wline(-50,330)
+##wline(14,330)
+##wline(78,330)
+##wline(142,330)
+##wline(-178,305)
+##wline(-114,305)
+##wline(-50,305)
+##wline(14,305)
+##wlist(-150, 333)
+##qline(-177, 180)
+##qline(-97, 180)
+##qline(-17,180)
+##qline(63,180)
+##qline(-177, 60)
+##qline(-97, 60)
+##qline(-17,60)
+##qline(63,60)
+##qline(-177, -60)
+##qline(-97, -60)
+##qline(-17,-60)
+##qline(63,-60)
+##qline(-177, -180)
+##qline(-97, -180)
+##qline(-17,-180)
+##qline(63,-180)
+##
+##button(-177,-308)
+##button(65,-308)
+##turtle.penup()
+##turtle.goto(-29,-300)
+##turtle.color(184,28,46)
+##turtle.begin_fill()
+##turtle.circle(7)
+##turtle.end_fill()
+##turtle.goto(-11,-300)
+##turtle.color("gray")
+##turtle.begin_fill()
+##turtle.circle(7)
+##turtle.end_fill()
+##turtle.goto(-145, -300)
+##turtle.color("white")
+##turtle.write("이전", align="center", font=("Arial", 10, "normal"))
+##turtle.goto(97, -300)
+##turtle.write("다음", align="center", font=("Arial", 10, "normal"))
+##
+##
+##turtle.penup()
+##turtle.color(184,28,46)
+##for hi in range(0, 480,120):
+##    turtle.goto(-165, 282-hi)
+##    turtle.write("Large", align="center", font=("Arial", 7, "normal"))
+##    turtle.goto(-85, 282-hi)
+##    turtle.write("Jumbo", align="center", font=("Arial", 7, "normal"))
+##    turtle.goto(-5, 282-hi)
+##    turtle.write("Large", align="center", font=("Arial", 7, "normal"))
+##    turtle.goto(75, 282-hi)
+##    turtle.write("Jumbo", align="center", font=("Arial", 7, "normal"))
+##
+##turtle.penup()
+##turtle.color(184,28,46)
+##turtle.goto(-145, 195)
+##turtle.write("블랙 밀크티 L", align="center", font=("Arial", 7, "normal"))
+##turtle.goto(-65, 195)
+##turtle.write("블랙 밀크티 J", align="center", font=("Arial", 7, "normal"))
+##turtle.goto(15, 195)
+##turtle.write("얼그레이 밀크티 L", align="center", font=("Arial", 6, "normal"))
+##turtle.goto(95, 195)
+##turtle.write("얼그레이 밀크티 J", align="center", font=("Arial", 6, "normal"))
+##
+##turtle.goto(-145, 75)
+##turtle.write("타로 밀크티 L", align="center", font=("Arial", 7, "normal"))
+##turtle.goto(-65, 75)
+##turtle.write("타로 밀크티 J", align="center", font=("Arial", 7, "normal"))
+##turtle.goto(15, 75)
+##turtle.write("제주그린 밀크티 L", align="center", font=("Arial", 5, "normal"))
+##turtle.goto(95, 75)
+##turtle.write("제주그린 밀크티 J", align="center", font=("Arial", 5, "normal"))
+##
+##turtle.goto(-145, -45)
+##turtle.write("브라운슈가 L", align="center", font=("Arial", 7, "normal"))
+##turtle.goto(-65, -45)
+##turtle.write("브라운슈가 J", align="center", font=("Arial", 7, "normal"))
+##turtle.goto(15, -45)
+##turtle.write("초콜렛 밀크티 L", align="center", font=("Arial", 7, "normal"))
+##turtle.goto(95, -45)
+##turtle.write("초콜렛 밀크티 J", align="center", font=("Arial", 7, "normal"))
+##
+##turtle.goto(-145, -165)
+##turtle.write("딸기쥬얼리밀크티 L", align="center", font=("Arial", 5, "normal"))
+##turtle.goto(-65, -165)
+##turtle.write("딸기쥬얼리밀크티 J", align="center", font=("Arial", 5, "normal"))
+##turtle.goto(15, -165)
+##turtle.write("자스민 밀크티 L", align="center", font=("Arial", 7, "normal"))
+##turtle.goto(95, -165)
+##turtle.write("자스민 밀크티 J", align="center", font=("Arial", 7, "normal"))
+##
+##turtle.penup()
+##turtle.color("black")
+##for hi in range(0, 480,120):
+##    turtle.goto(-145, 180-hi)
+##    turtle.write("4000원", align="center", font=("Arial", 8, "normal"))
+##    turtle.goto(-65, 180-hi)
+##    turtle.write("5100원", align="center", font=("Arial", 8, "normal"))
+##    turtle.goto(15, 180-hi)
+##    turtle.write("4000원", align="center", font=("Arial", 8, "normal"))
+##    turtle.goto(95, 180-hi)
+##    turtle.write("5000원", align="center", font=("Arial", 8, "normal"))
+##
+##screen = turtle.Screen()
+##image1="1.gif"
+##image2="2.gif"
+##image3="3.gif"
+##image4="4.gif"
+##image5="5.gif"
+##image6="6.gif"
+##image7="7.gif"
+##image8="8.gif"
+##screen.addshape(image1)
+##screen.addshape(image2)
+##screen.addshape(image3)
+##screen.addshape(image4)
+##screen.addshape(image5)
+##screen.addshape(image6)
+##screen.addshape(image7)
+##screen.addshape(image8)
+##t1=turtle.Turtle()
+##t1.hideturtle()
+##t1.penup()
+##t1.goto(-144,240)
+##t1.shape(image1)
+##t1.stamp()
+##t1.goto(-65, 240)
+##t1.shape(image1)
+##t1.stamp()
+##t1.goto(14,240)
+##t1.shape(image2)
+##t1.stamp()
+##t1.goto(94, 240)
+##t1.shape(image2)
+##t1.stamp()
+##
+##t1.goto(-144,120)
+##t1.shape(image3)
+##t1.stamp()
+##t1.goto(-65, 120)
+##t1.shape(image3)
+##t1.stamp()
+##t1.goto(14,120)
+##t1.shape(image4)
+##t1.stamp()
+##t1.goto(94, 120)
+##t1.shape(image4)
+##t1.stamp()
+##
+##t1.goto(-144,0)
+##t1.shape(image5)
+##t1.stamp()
+##t1.goto(-65, 0)
+##t1.shape(image5)
+##t1.stamp()
+##t1.goto(14,0)
+##t1.shape(image6)
+##t1.stamp()
+##t1.goto(94, 0)
+##t1.shape(image6)
+##t1.stamp()
+##
+##t1.goto(-144,-120)
+##t1.shape(image7)
+##t1.stamp()
+##t1.goto(-65, -120)
+##t1.shape(image7)
+##t1.stamp()
+##t1.goto(14,-120)
+##t1.shape(image8)
+##t1.stamp()
+##t1.goto(94, -120)
+##t1.shape(image8)
+##t1.stamp()
+##
+##time.sleep(2)
+
+
+
+
+TOPPING_PRICE = 500
+
+def calculate_total_price(menu_price, topping_price):
+    total_price = menu_price
+    total_price += topping_price
+    return total_price
+
+menu_prices = {
+    "블랙밀크티L": 4000,
+    "블랙밀크티J": 5100,
+    "얼그레이밀크티L": 4000,
+    "얼그레이밀크티J": 5100,
+    "타로밀크티L": 4000,
+    "타로밀크티J": 5100,
+    "제주그린밀크티L": 4000,
+    "제주그린밀크티J": 5100,
+    "브라운슈가L": 4000,
+    "브라운슈가J": 5100,
+    "초콜렛밀크티L": 4000,
+    "초콜렛밀크티J": 5100,
+    "딸기쥬얼리밀크티L": 4000,
+    "딸기쥬얼리밀크티J": 5100,
+    "자스민밀크티L": 4000,
+    "자스민밀크티J": 5100
+}
+
+#메뉴 입력시 옵션에 있지 않은 값 입력하면 오류 팝업 출력 이후 다시 입력창 띄우기
+while True:
+    menu_choice = tk.simpledialog.askstring("MENU", "메뉴를 선택해주세요: ")
+    if menu_choice not in menu_prices:
+        tk.messagebox.showerror("Error", "잘못된 메뉴입니다. 다시 입력해주세요.")
+        continue
+    cold = tk.simpledialog.askstring("COLD/HOT", "COLD/HOT: ")
+    if cold not in ["COLD", "HOT"]:
+        tk.messagebox.showerror("Error", "잘못된 온도 옵션입니다. 다시 입력해주세요.")
+        continue
+    ice = tk.simpledialog.askstring("얼음양", "Regular Ice/Full Ice/Less Ice: ")
+    if ice not in ["Regular Ice", "Full Ice", "Less Ice"]:
+        tk.messagebox.showerror("Error", "잘못된 얼음 양 옵션입니다. 다시 입력해주세요.")
+        continue
+    sugar = tk.simpledialog.askstring("당도", "50/100/30/70: ")
+    if sugar not in ["50", "100", "30", "70"]:
+        tk.messagebox.showerror("Error", "잘못된 당도 옵션입니다. 다시 입력해주세요.")
+        continue
+    topping = tk.simpledialog.askstring("토핑(+500)", "펄/밀크폼/코코넛/알로에 (입력하지 않으려면 엔터): ")
+    if topping not in ["펄", "밀크폼", "코코넛", "알로에", ""]:
+        tk.messagebox.showerror("Error", "잘못된 토핑 옵션입니다. 다시 입력해주세요.")
+        continue
+    else:
+        break
+
+# 선택한 옵션들을 문자열로 결합
+options = "/".join([menu_choice, cold, ice+" ", sugar, topping])
+
+# 선택한 메뉴의 가격을 가져옴 
+menu_price = menu_prices.get(menu_choice)
+
+# 토핑의 가격을 설정
+#if 조건 else 값1
+topping_price = TOPPING_PRICE if topping else 0
+
+total_price = calculate_total_price(menu_price, topping_price)
+
+
+
+turtle.penup()
+turtle.goto(-210,-350)
+turtle.pendown()
+turtle.speed(0)
+turtle.color(184,28,46)
+turtle.begin_fill()
+for a in range(2):
+    turtle.fd(35*q)
+    turtle.left(90)
+    turtle.fd(55*q)
+    turtle.left(90)
+turtle.end_fill()
+
+turtle.penup()
+turtle.goto(-100,-50)
+turtle.pendown()
+turtle.speed(0)
+turtle.color("white")
+turtle.begin_fill()
+for a in range(2):
+    turtle.fd(240)
+    turtle.circle(10,90)
+    turtle.fd(200)
+    turtle.circle(10,90)
+turtle.end_fill()
+
+
+def draw_dotted_line(length, dot_size=5, gap_size=2):
+    for _ in range(length // (dot_size + gap_size)):
+        turtle.pendown()
+        turtle.forward(dot_size)
+        turtle.penup()
+        turtle.forward(gap_size)
+turtle.color("black")
+turtle.penup()
+turtle.goto(-90, 130)
+turtle.pendown()
+draw_dotted_line(228)
+turtle.goto(-90, 90)
+draw_dotted_line(228)
+
+
+
+turtle.penup()
+turtle.goto(-90,133)
+turtle.write("05-23 2:31:30                003896", font=("Arial", 11, "normal"))
+turtle.goto(-90, 97)
+turtle.write(menu_choice, font=("휴먼모음T", 16, "normal"))
+turtle.goto(-90,68)
+turtle.write(options, font=("Arial", 11, "normal"))
+turtle.goto(-90,-4)
+turtle.write("순번 : 1-4", font=("Arial", 11, "normal"))
+turtle.goto(-90,-22)
+turtle.write("주문 : #389", font=("Arial", 11, "normal"))
+turtle.goto(-90,-40)
+turtle.write(total_price, font=("Arial", 11, "normal"))
