@@ -1,7 +1,7 @@
 import turtle
 import time #n초 대기 위해서 필요
 import tkinter as tk
-from tkinter import simpledialog #팝업 띄우기 위해 필요
+from tkinter import messagebox #팝업 띄우기 위해 필요
 
 turtle.colormode(255)
 turtle.bgcolor(184,28,46)
@@ -578,31 +578,31 @@ menu_prices = {
 
 #메뉴 입력시 옵션에 있지 않은 값 입력하면 오류 팝업 출력 이후 다시 입력창 띄우기
 while True:
-    menu_choice = tk.simpledialog.askstring("MENU", "메뉴를 선택해주세요: ")
+    menu_choice = turtle.textinput("MENU", "메뉴를 선택해주세요: ")
     if menu_choice not in menu_prices:
-        tk.messagebox.showerror("Error", "잘못된 메뉴입니다. 다시 입력해주세요.")
+        messagebox.showerror("Error", "잘못된 메뉴입니다. 다시 입력해주세요.")
         continue
-    cold = tk.simpledialog.askstring("COLD/HOT", "COLD/HOT: ")
+    cold = turtle.textinput("COLD/HOT", "COLD/HOT: ")
     if cold not in ["COLD", "HOT"]:
-        tk.messagebox.showerror("Error", "잘못된 온도 옵션입니다. 다시 입력해주세요.")
+        messagebox.showerror("Error", "잘못된 온도 옵션입니다. 다시 입력해주세요.")
         continue
-    ice = tk.simpledialog.askstring("얼음양", "Regular Ice/Full Ice/Less Ice: ")
+    ice = turtle.textinput("얼음양", "Regular Ice/Full Ice/Less Ice: ")
     if ice not in ["Regular Ice", "Full Ice", "Less Ice"]:
-        tk.messagebox.showerror("Error", "잘못된 얼음 양 옵션입니다. 다시 입력해주세요.")
+        messagebox.showerror("Error", "잘못된 얼음 양 옵션입니다. 다시 입력해주세요.")
         continue
-    sugar = tk.simpledialog.askstring("당도", "50/100/30/70: ")
+    sugar = turtle.textinput("당도", "50/100/30/70: ")
     if sugar not in ["50", "100", "30", "70"]:
-        tk.messagebox.showerror("Error", "잘못된 당도 옵션입니다. 다시 입력해주세요.")
+        messagebox.showerror("Error", "잘못된 당도 옵션입니다. 다시 입력해주세요.")
         continue
-    topping = tk.simpledialog.askstring("토핑(+500)", "펄/밀크폼/코코넛/알로에 (입력하지 않으려면 엔터): ")
-    if topping not in ["펄", "밀크폼", "코코넛", "알로에", ""]:
-        tk.messagebox.showerror("Error", "잘못된 토핑 옵션입니다. 다시 입력해주세요.")
+    topping = turtle.textinput("토핑(+500)", "펄/밀크폼/코코넛/알로에: ")
+    if topping not in ["펄", "밀크폼", "코코넛", "알로에"]:
+        messagebox.showerror("Error", "잘못된 토핑 옵션입니다. 다시 입력해주세요.")
         continue
     else:
         break
 
 # 선택한 옵션들을 문자열로 결합
-options = "/".join([menu_choice, cold, ice+" ", sugar, topping])
+options = "/".join([menu_choice, cold, ice+"\n", sugar, topping])
 
 # 선택한 메뉴의 가격을 가져옴 
 menu_price = menu_prices.get(menu_choice)
@@ -663,7 +663,7 @@ turtle.goto(-90,133)
 turtle.write("05-23 2:31:30                003896", font=("Arial", 11, "normal"))
 turtle.goto(-90, 97)
 turtle.write(menu_choice, font=("휴먼모음T", 16, "normal"))
-turtle.goto(-90,68)
+turtle.goto(-90,48)
 turtle.write(options, font=("Arial", 11, "normal"))
 turtle.goto(-90,-4)
 turtle.write("순번 : 1-4", font=("Arial", 11, "normal"))
