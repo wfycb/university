@@ -2,6 +2,9 @@ import turtle
 import time #n초 대기 위해서 필요
 import tkinter as tk
 from tkinter import messagebox #팝업 띄우기 위해 필요
+import random
+from datetime import datetime, timedelta
+#랜덤 날짜 생성
 
 turtle.colormode(255)
 turtle.bgcolor(184,28,46)
@@ -661,11 +664,34 @@ draw_dotted_line(228)
 turtle.goto(-90, 90)
 draw_dotted_line(228)
 
+# 랜덤 날짜 생성 함수
+def random_date(start_date, end_date):
+    delta = end_date - start_date
+    random_days = random.randint(0, delta.days)
+    random_date = start_date + timedelta(days=random_days)
+    return random_date
+
+# 랜덤 시간 생성 함수
+def random_time():
+    random_hour = random.randint(0, 23)
+    random_minute = random.randint(0, 59)
+    random_second = random.randint(0, 59)
+    return f"{random_hour:02}:{random_minute:02}:{random_second:02}"
+
+# 시작 날짜와 끝 날짜 정의
+start_date = datetime(2023, 1, 1)
+end_date = datetime(2023, 12, 31)
+# 랜덤 날짜와 시간 생성
+random_dt = random_date(start_date, end_date)
+random_t = random_time()
+random_number = random.randint(0, 10000)
+# 날짜 시간 형식 맞추기
+formatted_date_time = random_dt.strftime(f"%m-%d {random_t}")
 
 
 turtle.penup()
 turtle.goto(-90,133)
-turtle.write("05-23 2:31:30                   003896", font=("Arial", 11, "normal"))
+turtle.write(str(formatted_date_time)+str(random_number)+"           003896", font=("Arial", 11, "normal"))
 turtle.goto(-90, 97)
 turtle.write(menu_choice, font=("휴먼모음T", 16, "normal"))
 turtle.goto(-90,48)
@@ -677,4 +703,4 @@ turtle.write("주문 : #"+str(random.randint(100,999)), font=("Arial", 11, "norm
 turtle.goto(-90,-40)
 turtle.write("가격 :"+str(total_price), font=("Arial", 11, "normal"))
 
-time_sleep(5)
+time.sleep(5)
