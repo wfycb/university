@@ -673,7 +673,7 @@ turtle.write(options, font=("굴림", 11, "normal"))
 turtle.goto(-90,-4)
 turtle.write("순번 : 1-4", font=("Arial", 11, "normal"))
 turtle.goto(-90,-22)
-turtle.write("주문 : #389", font=("Arial", 11, "normal"))
+turtle.write("주문 : #"+str(random.randint(100,999)), font=("Arial", 11, "normal"))
 turtle.goto(-90,-40)
 turtle.write("가격 :"+str(total_price), font=("Arial", 11, "normal"))
 
